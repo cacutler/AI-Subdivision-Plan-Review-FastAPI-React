@@ -14,17 +14,18 @@ A subdivision plan reviewing tool that incorporates AI to help city engineers qu
 
 **Users**
 
-- ID
-- First Name
-- Last Name
-- Username
-- Email
-- Password
-- Status?
+- ID (UUID primary key)
+- First Name (string)
+- Last Name (string)
+- Username (string)
+- Email (string)
+- Password (string)
+- Status (enum (engineer or admin))?
 
 **Plans**
 
-- ID
-- Title
-- File
-- AI review notes
+- ID (UUID primary key)
+- User ID (UUID foreign key)
+- Title (string)
+- File (PDF)
+- AI review notes (either text or JSON)
