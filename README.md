@@ -20,7 +20,7 @@ A subdivision plan reviewing tool that incorporates AI to help city engineers qu
 - Username (string)
 - Email (string)
 - Password (string)
-- Status (enum (engineer or admin))?
+- Status (enum (engineer or admin))
 
 **Plans**
 
