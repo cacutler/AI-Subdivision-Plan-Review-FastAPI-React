@@ -1,7 +1,8 @@
 fastapi
 uvicorn
 pydantic
-pydantic_settings
+pydantic-settings
+pydantic[email]
 sqlalchemy
 passlib[bcrypt]
 bcrypt
