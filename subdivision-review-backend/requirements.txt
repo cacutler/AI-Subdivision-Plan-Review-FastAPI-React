@@ -6,3 +6,8 @@ sqlalchemy
 passlib[bcrypt]
 bcrypt
 python-jose[cryptography]
+aiofiles
+python-multipart
+python-dotenv
+anthropic
+pymupdf
