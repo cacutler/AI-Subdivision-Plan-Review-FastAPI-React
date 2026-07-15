@@ -10,6 +10,10 @@ A subdivision plan reviewing tool that incorporates AI to help city engineers qu
 - Calls external APIs or implement CRUD actions for zoning law data
 - Also implement CRUD actions on uploaded plan files
 
+## Screenshots
+
+![Main Page](Main-Page.png)
+
 ## Database Design/Structure
 
 **Users**
