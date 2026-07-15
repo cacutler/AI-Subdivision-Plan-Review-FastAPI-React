@@ -7,10 +7,12 @@ import { PlansListPage } from "./pages/PlansListPage";
 import { UploadPlanPage } from "./pages/UploadPlanPage";
 import { PlanDetailPage } from "./pages/PlanDetailPage";
 import { AdminUsersPage } from "./pages/AdminUsersPage";
+import { RegisterPage } from "./pages/RegisterPage";
 function App() {
     return (
         <Routes>
             <Route path="/login" element={<LoginPage/>}/>
+            <Route path="/register" element={<RegisterPage/>}/>
             <Route element={<RequireAuth/>}>
                 <Route element={<AppLayout/>}>
                     <Route path="/" element={<Navigate to="/plans" replace/>}/>
@@ -20,6 +22,7 @@ function App() {
                     <Route element={<RequireAdmin/>}>
                         <Route path="/admin/users" element={<AdminUsersPage/>}/>
                     </Route>
+                    <Route path="/logout" element={<Navigate to="/login" replace/>}/>
                 </Route>
             </Route>
             <Route path="*" element={<Navigate to="/plans" replace/>}/>

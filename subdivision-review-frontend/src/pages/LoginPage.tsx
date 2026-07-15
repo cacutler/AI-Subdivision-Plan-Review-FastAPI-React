@@ -1,5 +1,5 @@
 import { useState, type SubmitEvent } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { apiErrorMessage } from "../api/client";
 export function LoginPage() {
@@ -40,6 +40,7 @@ export function LoginPage() {
                 </label>
                 {error && <p className="form-error" role="alert">{error}</p>}
                 <button type="submit" className="btn-primary" disabled={submitting}>{submitting ? "Signing in…" : "Sign in"}</button>
+                <p className="hint" style={{ marginTop: 14 }}>Don't have an account? <Link to="/register">Register</Link></p>
             </form>
         </div>
     );
