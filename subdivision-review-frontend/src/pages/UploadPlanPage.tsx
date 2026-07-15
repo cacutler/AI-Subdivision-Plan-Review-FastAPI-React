@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useState, type SubmitEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { uploadPlan } from "../api/plans";
 import { apiErrorMessage } from "../api/client";
@@ -8,7 +8,7 @@ export function UploadPlanPage() {
     const [file, setFile] = useState<File | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [submitting, setSubmitting] = useState(false);
-    async function handleSubmit(e: FormEvent) {
+    async function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
         e.preventDefault();
         if (!file) {
             setError("Choose a PDF file to upload");

@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type SubmitEvent } from "react";
 import { createUser, deleteUser, listUsers, updateUserStatus } from "../api/users";
 import { apiErrorMessage } from "../api/client";
 import type { User, UserRole } from "../types";
@@ -12,7 +12,7 @@ export function AdminUsersPage() {
         listUsers().then(setUsers).catch((err) => setError(apiErrorMessage(err, "Could not load users")));
     }
     useEffect(refresh, []);
-    async function handleCreate(e: FormEvent) {
+    async function handleCreate(e: SubmitEvent<HTMLFormElement>) {
         e.preventDefault();
         setError(null);
         setSubmitting(true);
