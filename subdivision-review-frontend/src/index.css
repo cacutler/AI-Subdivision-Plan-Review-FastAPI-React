@@ -4,373 +4,303 @@
    accent, monospace used for anything precise (IDs, code citations).
 ------------------------------------------------------------------------ */
 :root {
-  --ink: #1c2b39;
-  --ink-soft: #4b5b6b;
-  --paper: #faf9f6;
-  --paper-raised: #ffffff;
-  --line: #d9dee2;
-  --line-strong: #b7c0c7;
-
-  --blueprint: #2f5d8a;
-  --blueprint-dark: #1e3f5c;
-  --blueprint-bg: rgba(47, 93, 138, 0.08);
-
-  --pass: #2f7a4f;
-  --pass-bg: rgba(47, 122, 79, 0.1);
-  --warn: #a8730f;
-  --warn-bg: rgba(168, 115, 15, 0.12);
-  --fail: #ab3b26;
-  --fail-bg: rgba(171, 59, 38, 0.1);
-
-  --sans: -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
-  --mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
-
-  color-scheme: light;
+    --ink: #1c2b39;
+    --ink-soft: #4b5b6b;
+    --paper: #faf9f6;
+    --paper-raised: #ffffff;
+    --line: #d9dee2;
+    --line-strong: #b7c0c7;
+    --blueprint: #2f5d8a;
+    --blueprint-dark: #1e3f5c;
+    --blueprint-bg: rgba(47, 93, 138, 0.08);
+    --pass: #2f7a4f;
+    --pass-bg: rgba(47, 122, 79, 0.1);
+    --warn: #a8730f;
+    --warn-bg: rgba(168, 115, 15, 0.12);
+    --fail: #ab3b26;
+    --fail-bg: rgba(171, 59, 38, 0.1);
+    --sans: -apple-system, system-ui, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+    color-scheme: light;
 }
-
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-html,
 body {
-  margin: 0;
-  padding: 0;
+    font: 15px/1.55 var(--sans);
+    color: var(--ink);
+    background: linear-gradient(var(--paper), var(--paper)), repeating-linear-gradient(to right,rgba(47, 93, 138, 0.05) 0 1px, transparent 1px 48px), repeating-linear-gradient(to bottom, rgba(47, 93, 138, 0.05) 0 1px, transparent 1px 48px);
+    min-height: 100vh;
 }
-
-body {
-  font: 15px/1.55 var(--sans);
-  color: var(--ink);
-  background:
-    linear-gradient(var(--paper), var(--paper)),
-    repeating-linear-gradient(
-      to right,
-      rgba(47, 93, 138, 0.05) 0 1px,
-      transparent 1px 48px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(47, 93, 138, 0.05) 0 1px,
-      transparent 1px 48px
-    );
-  min-height: 100vh;
+h1, h2, h3 {
+    font-family: var(--sans);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0 0 4px;
 }
-
-h1,
-h2,
-h3 {
-  font-family: var(--sans);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  margin: 0 0 4px;
-}
-
 h1 {
-  font-size: 26px;
+    font-size: 26px;
 }
-
 h2 {
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--ink-soft);
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 8px;
-  margin-bottom: 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
 }
-
 p {
-  margin: 0 0 8px;
+    margin: 0 0 8px;
 }
-
 a {
-  color: var(--blueprint);
-  text-decoration: none;
+    color: var(--blueprint);
+    text-decoration: none;
 }
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
-
-button,
-input,
-select {
-  font: inherit;
+button, input, select {
+    font: inherit;
 }
-
 /* ---------------------------------------------------------------------
    App shell
 ------------------------------------------------------------------------ */
 .app-shell {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
-
 .navbar {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 12px 28px;
-  background: var(--paper-raised);
-  border-bottom: 2px solid var(--blueprint-dark);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 28px;
+    background: var(--paper-raised);
+    border-bottom: 2px solid var(--blueprint-dark);
 }
-
 .navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  font-size: 17px;
-  color: var(--blueprint-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--blueprint-dark);
 }
-
 .navbar-mark {
-  color: var(--blueprint);
-  font-size: 20px;
+    color: var(--blueprint);
+    font-size: 20px;
 }
-
 .navbar-links {
-  display: flex;
-  gap: 4px;
-  flex: 1;
+    display: flex;
+    gap: 4px;
+    flex: 1;
 }
-
 .navbar-links a {
-  color: var(--ink-soft);
-  padding: 8px 14px;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 14px;
+    color: var(--ink-soft);
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
 }
-
 .navbar-links a:hover {
-  background: var(--blueprint-bg);
-  text-decoration: none;
+    background: var(--blueprint-bg);
+    text-decoration: none;
 }
-
 .navbar-links a.active {
-  color: var(--blueprint-dark);
-  background: var(--blueprint-bg);
+    color: var(--blueprint-dark);
+    background: var(--blueprint-bg);
 }
-
 .navbar-user {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
-
 .navbar-username {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--ink-soft);
 }
-
 .role-tag {
-  font-family: var(--mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  background: var(--blueprint-bg);
-  color: var(--blueprint-dark);
-  padding: 2px 6px;
-  border-radius: 3px;
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: var(--blueprint-bg);
+    color: var(--blueprint-dark);
+    padding: 2px 6px;
+    border-radius: 3px;
 }
-
 .app-content {
-  flex: 1;
-  padding: 32px 28px 64px;
-  max-width: 960px;
-  width: 100%;
-  margin: 0 auto;
+    flex: 1;
+    padding: 32px 28px 64px;
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
 }
-
 /* ---------------------------------------------------------------------
    Buttons
 ------------------------------------------------------------------------ */
-.btn-primary,
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border-radius: 4px;
-  padding: 9px 16px;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-  border: 1px solid transparent;
+.btn-primary, .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 4px;
+    padding: 9px 16px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid transparent;
 }
-
 .btn-primary {
-  background: var(--blueprint);
-  color: #fff;
-  text-decoration: none;
+    background: var(--blueprint);
+    color: #fff;
+    text-decoration: none;
 }
 .btn-primary:hover {
-  background: var(--blueprint-dark);
-  text-decoration: none;
+    background: var(--blueprint-dark);
+    text-decoration: none;
 }
 .btn-primary:disabled {
-  background: var(--line-strong);
-  cursor: not-allowed;
+    background: var(--line-strong);
+    cursor: not-allowed;
 }
-
 .btn-ghost {
-  background: transparent;
-  color: var(--ink-soft);
-  border-color: var(--line);
+    background: transparent;
+    color: var(--ink-soft);
+    border-color: var(--line);
 }
 .btn-ghost:hover {
-  border-color: var(--line-strong);
-  color: var(--ink);
+    border-color: var(--line-strong);
+    color: var(--ink);
 }
-
 .btn-danger {
-  color: var(--fail);
+    color: var(--fail);
 }
 .btn-danger:hover {
-  border-color: var(--fail);
-  background: var(--fail-bg);
+    border-color: var(--fail);
+    background: var(--fail-bg);
 }
-
 /* ---------------------------------------------------------------------
    Pages / layout helpers
 ------------------------------------------------------------------------ */
 .page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
 }
-
 .page-narrow {
-  max-width: 480px;
+    max-width: 480px;
 }
-
-.page-loading,
-.form-error,
-.hint {
-  font-size: 14px;
+.page-loading, .form-error, .hint {
+    font-size: 14px;
 }
-
 .page-loading {
-  color: var(--ink-soft);
+    color: var(--ink-soft);
 }
-
 .form-error {
-  color: var(--fail);
-  background: var(--fail-bg);
-  padding: 8px 12px;
-  border-radius: 4px;
+    color: var(--fail);
+    background: var(--fail-bg);
+    padding: 8px 12px;
+    border-radius: 4px;
 }
-
 .hint {
-  color: var(--ink-soft);
-  font-style: italic;
+    color: var(--ink-soft);
+    font-style: italic;
 }
-
 .empty-state {
-  border: 1px dashed var(--line-strong);
-  border-radius: 6px;
-  padding: 32px;
-  text-align: center;
-  color: var(--ink-soft);
+    border: 1px dashed var(--line-strong);
+    border-radius: 6px;
+    padding: 32px;
+    text-align: center;
+    color: var(--ink-soft);
 }
-
 .badge-row {
-  display: flex;
-  gap: 8px;
-  margin-top: 6px;
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
 }
-
 /* ---------------------------------------------------------------------
    Auth screen
 ------------------------------------------------------------------------ */
 .auth-screen {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 .auth-card {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--blueprint);
-  border-radius: 6px;
-  padding: 36px;
-  width: 320px;
-  box-shadow: 0 8px 24px rgba(30, 63, 92, 0.08);
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--blueprint);
+    border-radius: 6px;
+    padding: 36px;
+    width: 320px;
+    box-shadow: 0 8px 24px rgba(30, 63, 92, 0.08);
 }
-
 .auth-mark {
-  color: var(--blueprint);
-  font-size: 28px;
-  margin-bottom: 8px;
+    color: var(--blueprint);
+    font-size: 28px;
+    margin-bottom: 8px;
 }
-
 .auth-subtitle {
-  color: var(--ink-soft);
-  font-size: 13px;
-  margin-bottom: 20px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    margin-bottom: 20px;
 }
-
 /* ---------------------------------------------------------------------
    Forms
 ------------------------------------------------------------------------ */
 .card-form {
-  background: var(--paper-raised);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 20px;
-  margin-bottom: 24px;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 24px;
 }
-
 .field {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 14px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--ink-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
 }
-
-.field input,
-.field select {
-  border: 1px solid var(--line-strong);
-  border-radius: 4px;
-  padding: 9px 10px;
-  font-size: 14px;
-  color: var(--ink);
-  font-weight: 400;
-  background: var(--paper);
+.field input, .field select {
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    padding: 9px 10px;
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 400;
+    background: var(--paper);
 }
-
-.field input:focus-visible,
-.field select:focus-visible {
-  outline: 2px solid var(--blueprint);
-  outline-offset: 1px;
+.field input:focus-visible, .field select:focus-visible {
+    outline: 2px solid var(--blueprint);
+    outline-offset: 1px;
 }
-
 .field-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
 }
-
 .review-trigger {
-  display: flex;
-  align-items: flex-end;
-  gap: 16px;
-  flex-wrap: wrap;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 .review-trigger .field {
-  flex: 1;
-  min-width: 220px;
-  margin-bottom: 0;
+    flex: 1;
+    min-width: 220px;
+    margin-bottom: 0;
 }
 /* ---------------------------------------------------------------------
    Tables
