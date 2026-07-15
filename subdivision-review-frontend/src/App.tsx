@@ -7,28 +7,23 @@ import { PlansListPage } from "./pages/PlansListPage";
 import { UploadPlanPage } from "./pages/UploadPlanPage";
 import { PlanDetailPage } from "./pages/PlanDetailPage";
 import { AdminUsersPage } from "./pages/AdminUsersPage";
-
 function App() {
-  return (
-    <Routes>
-      <Route path="/login" element={<LoginPage />} />
-
-      <Route element={<RequireAuth />}>
-        <Route element={<AppLayout />}>
-          <Route path="/" element={<Navigate to="/plans" replace />} />
-          <Route path="/plans" element={<PlansListPage />} />
-          <Route path="/plans/new" element={<UploadPlanPage />} />
-          <Route path="/plans/:planId" element={<PlanDetailPage />} />
-
-          <Route element={<RequireAdmin />}>
-            <Route path="/admin/users" element={<AdminUsersPage />} />
-          </Route>
-        </Route>
-      </Route>
-
-      <Route path="*" element={<Navigate to="/plans" replace />} />
-    </Routes>
-  );
+    return (
+        <Routes>
+            <Route path="/login" element={<LoginPage/>}/>
+            <Route element={<RequireAuth/>}>
+                <Route element={<AppLayout/>}>
+                    <Route path="/" element={<Navigate to="/plans" replace/>}/>
+                    <Route path="/plans" element={<PlansListPage/>}/>
+                    <Route path="/plans/new" element={<UploadPlanPage/>}/>
+                    <Route path="/plans/:planId" element={<PlanDetailPage/>}/>
+                    <Route element={<RequireAdmin/>}>
+                        <Route path="/admin/users" element={<AdminUsersPage/>}/>
+                    </Route>
+                </Route>
+            </Route>
+            <Route path="*" element={<Navigate to="/plans" replace/>}/>
+        </Routes>
+    );
 }
-
 export default App;
