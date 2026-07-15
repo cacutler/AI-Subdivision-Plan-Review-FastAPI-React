@@ -12,9 +12,10 @@ from uuid import UUID
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
-from passlib.context import CryptContext
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
+
+import hashlib
 
 from app.config import settings
 from app.database import get_db
@@ -24,17 +25,15 @@ from app.models import User
 # Password hashing
 # ---------------------------------------------------------------------------
 
-_pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-
 
 def hash_password(plain: str) -> str:
-    """Return a bcrypt hash of the plain-text password."""
-    return _pwd_context.hash(plain)
+    """Return a SHA-256 hash of the plain-text password."""
+    return hashlib.sha256(plain.encode("utf-8")).hexdigest()
 
 
 def verify_password(plain: str, hashed: str) -> bool:
-    """Return True if plain matches the stored bcrypt hash."""
-    return _pwd_context.verify(plain, hashed)
+    """Return True if plain matches the stored hash."""
+    return hash_password(plain) == hashed
 
 
 # ---------------------------------------------------------------------------
