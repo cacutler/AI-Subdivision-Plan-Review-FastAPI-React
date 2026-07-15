@@ -1,11 +1,12 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import { getMe, login as loginRequest } from "../api/auth";
+import { getMe, login as loginRequest, register as registerRequest, type RegisterBody } from "../api/auth";
 import type { User } from "../types";
 interface AuthContextValue {
     user: User | null;
     loading: boolean;
     login: (username: string, password: string) => Promise<void>;
     logout: () => void;
+    register: (body: RegisterBody) => Promise<void>;
 }
 const AuthContext = createContext<AuthContextValue | null>(null);
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -29,10 +30,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         localStorage.removeItem("access_token");
         setUser(null);
     }
+    async function register(body: RegisterBody) {
+        const {access_token} = await registerRequest(body);
+        localStorage.setItem("access_token", access_token);
+        const me = await getMe();
+        setUser(me);
+    }
     return (
-        <AuthContext.Provider value={{user, loading, login, logout}}>
-            {children}
-        </AuthContext.Provider>
+        <AuthContext.Provider value={{user, loading, login, register, logout}}>{children}</AuthContext.Provider>
     );
 }
 export function useAuth(): AuthContextValue {

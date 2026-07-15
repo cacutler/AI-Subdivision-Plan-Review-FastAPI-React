@@ -12,3 +12,14 @@ export async function getMe(): Promise<User> {
     const res = await api.get<User>("/users/me");
     return res.data;
 }
+export interface RegisterBody {
+    first_name: string;
+    last_name: string;
+    username: string;
+    email: string;
+    password: string;
+}
+export async function register(body: RegisterBody): Promise<LoginResponse> {
+    const res = await api.post<LoginResponse>("/auth/register", body);
+    return res.data;
+}
